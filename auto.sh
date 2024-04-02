@@ -11,6 +11,7 @@ sudo apt install -y zsh nano wget flatpak
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Set .zshrc file
+cd
 wget https://raw.githubusercontent.com/realairacobra/autozsh/main/.zshrc
 
 # Install zsh plugins
