@@ -2,7 +2,7 @@
 
 # Updates
 sudo apt update
-sudo apt upgrade
+sudo apt -y upgrade
 
 # Install zsh
 sudo apt install -y zsh nano wget flatpak git
@@ -12,6 +12,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 
 # Set .zshrc file
 cd
+rm -rf .zshrc
 wget https://raw.githubusercontent.com/realairacobra/autozsh/main/.zshrc
 
 # Install zsh plugins
