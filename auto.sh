@@ -1,25 +1,22 @@
 #!/bin/bash
 
-# Update package lists
+# Updates
 sudo apt update
+sudo apt upgrade
 
 # Install zsh
-sudo apt install -y zsh
+sudo apt install -y zsh nano wget flatpak
 
 # Install Oh My Zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-# Set funky theme
-echo "ZSH_THEME=\"funky\"" >> ~/.zshrc
+# Set .zshrc file
+wget https://raw.githubusercontent.com/realairacobra/autozsh/main/.zshrc
 
-# Install basic Zsh autocompletions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# Install zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# Add autosuggestions to plugins
-echo "plugins=(git autosuggestions)" >> ~/.zshrc
-
-# Reload Zsh configuration
-source ~/.zshrc
-
-# Inform user
-echo "Oh My Zsh with funky theme and basic autocompletions installed!"
+# QOL stuff for chromebooks and their bs
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
