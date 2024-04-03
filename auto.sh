@@ -23,9 +23,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # add flatpak repo
 clear
 read -r -p "add flatpak [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-    then
-        sudo apt install -y flatpak && sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    else
-        exit
-    fi
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] then sudo apt install -y flatpak && sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
