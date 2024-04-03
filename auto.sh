@@ -20,6 +20,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+chsh -s $(which zsh) #set zsh as default shell
 # add flatpak repo
 clear
 read -p "Are you sure you want to install flatpak and add the flathub repository? (y/N) " yn
@@ -35,7 +36,7 @@ case $yn in
     sudo apt install -y flatpak && sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     ;;
   [Nn]*)  # Matches any variation of no (n,N,no,NO)
-    echo "Exiting..."
+    echo "Exiting"
     exit 0  # Exit script with success code
     ;;
 esac
