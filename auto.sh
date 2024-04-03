@@ -6,22 +6,25 @@ sudo apt -y upgrade
 
 # Install zsh
 sudo apt install -y zsh nano wget git curl
+clear
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+clear
 
 # Set .zshrc file
 cd
 rm -rf .zshrc
 wget https://raw.githubusercontent.com/realairacobra/autozsh/main/.zshrc
+clear
 
 # Install zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+clear
 
 chsh -s $(which zsh) #set zsh as default shell
-# add flatpak repo
 clear
 read -p "Are you sure you want to install flatpak and add the flathub repository? (y/N) " yn
 
