@@ -2,7 +2,6 @@
 
 # Updates
 sudo apt update
-sudo apt -y upgrade
 
 # Install zsh
 sudo apt install -y zsh nano wget git curl
