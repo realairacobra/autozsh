@@ -34,9 +34,10 @@ case $yn in
   [Yy]*)  # Matches any variation of yes (y,Y,yes,YES)
     echo "Installing flatpak and adding flathub repository..."
     sudo apt install -y flatpak && sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    zsh
     ;;
   [Nn]*)  # Matches any variation of no (n,N,no,NO)
     echo "Exiting"
-    exit 0  # Exit script with success code
+    zsh
     ;;
 esac
