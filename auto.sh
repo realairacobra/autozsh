@@ -21,6 +21,7 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.o
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # add flatpak repo
+clear
 read -r -p "add flatpak [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
     then
