@@ -22,6 +22,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # add flatpak repo
 clear
-read -r -p "add flatpak [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] then sudo apt install -y flatpak && sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+read -p "Are you sure you want to install flatpak and add the flathub repository? (y/N) " yn
 
+while [[ ! $yn =~ ^[YyNn]$ ]]; do
+  echo "Invalid input. Please enter y or n."
+  read -p "Are you sure you want to continue? (y/N) " yn
+done
+
+case $yn in
+  [Yy]*)  # Matches any variation of yes (y,Y,yes,YES)
+    echo "Installing flatpak and adding flathub repository..."
+    sudo apt install -y flatpak && sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    ;;
+  [Nn]*)  # Matches any variation of no (n,N,no,NO)
+    echo "Exiting..."
+    exit 0  # Exit script with success code
+    ;;
+esac
